@@ -1,0 +1,31 @@
+<!-- the navbar-expand-md makes all the elements labelled nav-item move side by side horizontally-->
+<nav class="navbar navbar-dark navbar-expand-md bg-dark text-light" >
+  <div class="container">
+    <a class="navbar-brand">Travel Tours</a>
+    <!-- We use an ng-container here cause its not html so it doesn't change the apperance. Using the div 
+    will change that.
+  
+    Also I didn't need to change it to as user but I just followed the tutorial-->
+
+    <ng-container *ngIf="(account.getUser()) as User" >
+      <ul class="navbar-nav mr-auto">
+
+        <li class="nav-item " routerLink="/members" routerLinkActive="active">
+          <a routerLink="/members" class="nav-link"> Profile</a>
+        </li>
+        <li class="nav-item " routerLink="/messages" routerLinkActive="active">
+          <a routerLink="/messages" class="nav-link"> Messages</a>
+        </li>
+      </ul>
+      
+      <li class="nav-link">Welcome {{account.getUser().username}}</li>
+      <button (click)="account.LogUserOut()" class="btn btn-danger">Logout</button>
+     
+    </ng-container>
+    <!-- This below is a good place to use ActiveRoute to check if you are in the signin page and remove
+    the button if its there
+    -->
+    <button *ngIf="!(account.getUser())"  routerLink="/signin"class="btn btn-info">Login</button>
+  </div>
+    
+</nav>

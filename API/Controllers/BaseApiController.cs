@@ -29,8 +29,8 @@ namespace API.Controllers
         }
 
         
-       //Gets all the users in the database
-        protected async Task<List<User>> GetAllUsers()=> await _firebaseDataContext.GetData<User>("Account");
+       //Gets all the users in the database, if null it returns a new list so that its not null to stop from having a NullException error we use
+        protected async Task<List<User>> GetAllUsers()=> (await _firebaseDataContext.GetData<User>("Account"))==null?new List<User>(): await _firebaseDataContext.GetData<User>("Account");
 
         //checks if a user with a certain username exists
         protected async Task<bool> UserExists(string username) => (await GetAllUsers()).Where(u => u.Username == username).Any();

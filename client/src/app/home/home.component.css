@@ -1,0 +1,16 @@
+.back-img{
+    background: linear-gradient(to bottom, rgba(22, 22, 22, 0.157) 0%, rgba(18, 18, 18, 0.158) 100%), url("https://pinkelephant.ru/imgs/thailand/tailand.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+}
+.center-text{
+    text-align:center;
+    display:table-cell;
+    vertical-align: middle;
+}
+h1{
+    font-size: 75px;
+}
